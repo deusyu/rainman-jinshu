@@ -12,6 +12,7 @@
 |------|------|
 | 仅渲染（内联 HTML） | `bun src/render.mjs <themeId> <file.md>` |
 | 渲染 + 发草稿箱 | `bun src/publish.mjs <file.md> <themeId> [--author 名]` |
+| 生成品牌封面 | `bun src/cover.mjs --title "标题" [--accent rgb(..)] [--square]` |
 | 复核主题保真度 | `node src/verify.mjs [themeId --detail]` |
 | 打包 themes.json | `node src/bundle.mjs` |
 | （可选）重抓主题 | `node src/extract.mjs`（需先抓取 `themes/raw/`，见下） |

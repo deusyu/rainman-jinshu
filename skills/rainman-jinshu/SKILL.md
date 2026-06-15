@@ -19,6 +19,7 @@ metadata:
 | 仅渲染（输出内联 HTML） | `bun src/render.mjs <themeId> <file.md>` |
 | 渲染 + 发草稿箱 | `bun src/publish.mjs <file.md> <themeId> [--author 名]` |
 | 渲染 + 群发提交 | `bun src/publish.mjs <file.md> <themeId> --submit` |
+| 生成品牌封面(900×383/383×383) | `bun src/cover.mjs --title <标题> [--accent rgb] [--square]` |
 | 复核主题保真度 | `node src/verify.mjs [themeId --detail]` |
 | 重新抓取/打包主题 | `node src/extract.mjs && node src/bundle.mjs` |
 

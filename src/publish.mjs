@@ -53,6 +53,8 @@ const author = authorI >= 0 ? args[authorI + 1] : "";
 const portI = args.indexOf("--cdp-port");
 const cdpPort = portI >= 0 ? args[portI + 1] : "9222";
 
+const noCover = args.includes("--no-cover");
+
 const md = fs.readFileSync(mdFile, "utf8");
 const { title, body } = splitTitle(md);
 const theme = loadTheme(themeId);
@@ -61,6 +63,27 @@ const section = renderMarkdown(body, theme); // render.mjs handles fallback inte
 const out = path.join(os.tmpdir(), `jinshu-${themeId}-${Date.now()}.html`);
 fs.writeFileSync(out, `<!doctype html><html><head><meta charset="utf-8"><title>${title}</title></head><body>${section}</body></html>`);
 console.log(`[jinshu] 渲染「${theme.name}」→ ${out}\n[jinshu] 标题：${title}`);
+
+// 自动生成品牌封面（大图 900×383 + 方图 383×383），用主题代表色。
+function themeAccent(id) {
+  try {
+    const themes = JSON.parse(fs.readFileSync(new URL("../themes.json", import.meta.url), "utf8"));
+    return themes.find((t) => t.id === String(id))?.accent || "#07C160";
+  } catch { return "#07C160"; }
+}
+function genCover(square) {
+  const cover = path.join(os.tmpdir(), `jinshu-cover-${square ? "sq" : "wide"}-${Date.now()}.png`);
+  const a = ["src/cover.mjs", "--title", title, "--accent", themeAccent(themeId), "--out", cover];
+  if (square) a.push("--square");
+  const cr = spawnSync("bun", a, { cwd: path.resolve(path.dirname(new URL(import.meta.url).pathname), ".."), stdio: ["ignore", "ignore", "inherit"] });
+  return cr.status === 0 && fs.existsSync(cover) ? cover : null;
+}
+if (!noCover) {
+  const wide = genCover(false), sq = genCover(true);
+  if (wide) console.log(`[jinshu] 封面(大图 900×383)：${wide}`);
+  if (sq) console.log(`[jinshu] 封面(方图 383×383)：${sq}`);
+  console.log(`[jinshu] ↑ 浏览器/CDP 路无法自动设封面：在编辑器「封面和摘要」处上传上面的大图即可（群发前必设）。`);
+}
 
 const cmd = ["-y", "bun", BAOYU, "--html", out, "--title", title, "--cdp-port", cdpPort];
 if (author) cmd.push("--author", author);
