@@ -8,7 +8,32 @@ import os from "node:os";
 import { spawnSync } from "node:child_process";
 import { renderMarkdown, loadTheme } from "./render.mjs";
 
-const BAOYU = "/Users/daniel/.claude/plugins/marketplaces/baoyu-skills/skills/baoyu-post-to-wechat/scripts/wechat-article.ts";
+// Resolve baoyu-post-to-wechat's wechat-article.ts:
+//   1. env BAOYU_POST_TO_WECHAT (a .ts file, or the skill dir)
+//   2. auto-detect under ~/.claude (plugin marketplaces or installed skills)
+const SCRIPT_REL = "scripts/wechat-article.ts";
+function resolveBaoyu() {
+  const env = process.env.BAOYU_POST_TO_WECHAT;
+  if (env) {
+    const p = env.endsWith(".ts") ? env : path.join(env, SCRIPT_REL);
+    if (fs.existsSync(p)) return p;
+    throw new Error(`BAOYU_POST_TO_WECHAT 指向的路径不存在：${p}`);
+  }
+  const home = os.homedir();
+  const cand = [path.join(home, ".claude/skills/baoyu-post-to-wechat", SCRIPT_REL)];
+  const mk = path.join(home, ".claude/plugins/marketplaces");
+  try {
+    for (const d of fs.readdirSync(mk)) {
+      cand.push(path.join(mk, d, "skills/baoyu-post-to-wechat", SCRIPT_REL));
+    }
+  } catch {}
+  const hit = cand.find((p) => fs.existsSync(p));
+  if (hit) return hit;
+  throw new Error(
+    "找不到 baoyu-post-to-wechat。请安装该 skill，或设环境变量 BAOYU_POST_TO_WECHAT 指向其 scripts/wechat-article.ts 或 skill 目录。"
+  );
+}
+const BAOYU = resolveBaoyu();
 
 function splitTitle(md) {
   const m = md.match(/^\s*#\s+(.+?)\s*$/m);
