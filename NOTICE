@@ -1,0 +1,14 @@
+锦书 Jinshu — NOTICE
+
+Theme typography data in `themes/maps/` and `themes.json` is DERIVED from the
+public themes of mdnice (https://editor.mdnice.com), extracted via mdnice's
+public API as per-element computed inline styles. All rights to the original
+theme designs belong to mdnice and the respective theme authors. This project
+reproduces them for technical interoperability/reuse only; verify your usage
+rights with the original source before redistribution or commercial use.
+
+This repository does NOT redistribute mdnice's example article content
+(the fetch cache under `themes/raw/`, which is excluded).
+
+The CODE in this repository (src/, tools/, skills/) is licensed under MIT
+(see LICENSE).

@@ -1,0 +1,23 @@
+{
+  "id": "63",
+  "name": "简",
+  "description": "简的作者很懒，暂时没有描述",
+  "selectors": {
+    "h3": "margin-top: 30px; margin-bottom: 15px; margin-left: 0px; margin-right: 0px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; display: block;",
+    "h3 span.prefix": "display: none;",
+    "h3 span.content": "font-size: 20px; color: rgb(0, 0, 0); line-height: 1.5em; letter-spacing: 0em; text-align: left; font-weight: bold; display: block;",
+    "h3 span.suffix": "display: none;",
+    "hr": "margin-top: 10px; margin-bottom: 10px; margin-left: 0px; margin-right: 0px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; border-top-style: solid; border-bottom-style: none; border-left-style: none; border-right-style: none; border-top-width: 1px; border-bottom-width: 3px; border-left-width: 3px; border-right-width: 3px; border-top-color: rgb(51, 51, 51); border-bottom-color: rgba(0, 0, 0, 0.4); border-left-color: rgba(0, 0, 0, 0.4); border-right-color: rgba(0, 0, 0, 0.4); border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; background-attachment: scroll; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: none; background-origin: padding-box; background-position-x: 0%; background-position-y: 0%; background-repeat: no-repeat; background-size: auto; width: auto; height: 1px;",
+    "p": "color: rgb(51, 51, 51); font-size: 16px; line-height: 1.8em; letter-spacing: 0em; text-align: left; text-indent: 0em; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; padding-top: 8px; padding-bottom: 8px; padding-left: 0px; padding-right: 0px;",
+    "code": "color: rgb(228, 105, 24); font-size: 14px; line-height: 1.8em; letter-spacing: 0em; background-attachment: scroll; background-clip: border-box; background-color: rgb(239, 239, 239); background-image: none; background-origin: padding-box; background-position-x: 0%; background-position-y: 0%; background-repeat: no-repeat; background-size: auto; width: auto; height: auto; margin-top: 0px; margin-bottom: 0px; margin-left: 2px; margin-right: 2px; padding-top: 2px; padding-bottom: 2px; padding-left: 4px; padding-right: 4px; border-top-style: none; border-bottom-style: none; border-left-style: none; border-right-style: none; border-top-width: 3px; border-bottom-width: 3px; border-left-width: 3px; border-right-width: 3px; border-top-color: rgb(0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0.4); border-left-color: rgba(0, 0, 0, 0.4); border-right-color: rgba(0, 0, 0, 0.4); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; overflow-wrap: break-word; font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace; word-break: break-all;"
+  },
+  "counts": {
+    "h3": 4,
+    "h3 span.prefix": 4,
+    "h3 span.content": 4,
+    "h3 span.suffix": 4,
+    "hr": 3,
+    "p": 56,
+    "code": 116
+  }
+}

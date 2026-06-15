@@ -1,0 +1,40 @@
+{
+  "id": "48",
+  "name": "草原绿",
+  "description": "绿油油的大草原",
+  "selectors": {
+    "container": "margin-top: 5px; margin-bottom: 5px; color: rgb(43, 43, 43); font-size: 16px; line-height: 1.8em; letter-spacing: 0.02em; text-align: left; font-weight: normal;",
+    "h3": "margin-top: 30px; margin-bottom: 15px; margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; background-attachment: scroll; background-clip: border-box; background-color: transparent; background-image: url('https://files.mdnice.com/test/user/7752/d135e05d-1e40-49c7-9cbd-e34f9615c15b.png'); background-origin: padding-box; background-position-x: 50%; background-position-y: 50%; background-repeat: no-repeat; background-size: 30px; width: auto; height: auto; align-items: unset; border-top-style: none; border-bottom-style: none; border-left-style: none; border-right-style: none; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-width: 1px; border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; box-shadow: none; display: flex; flex-direction: unset; float: unset; justify-content: center; line-height: 1.5em; overflow-x: unset; overflow-y: unset; padding-top: 0px; padding-bottom: 0px; position: relative; text-align: left; text-shadow: none; transform: none; -webkit-box-reflect: unset;",
+    "h3 span.prefix": "display: none;",
+    "h3 span.content": "font-size: 18px; color: rgb(76, 175, 80); line-height: 2.4em; letter-spacing: 0em; margin-top: 38px; margin-bottom: 10px; border-top-style: none; border-bottom-style: none; border-left-style: none; border-right-style: none; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-width: 1px; border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; align-items: unset; background-attachment: scroll; background-clip: border-box; background-color: transparent; background-image: none; background-origin: padding-box; background-position-x: 0%; background-position-y: 0%; background-repeat: no-repeat; background-size: auto; box-shadow: none; display: inline-block; font-weight: bold; flex-direction: unset; float: unset; height: 38px; justify-content: unset; margin-left: 0px; margin-right: 0px; overflow-x: unset; overflow-y: unset; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; position: relative; text-align: center; text-indent: 0em; text-shadow: none; transform: none; width: auto; -webkit-box-reflect: unset;",
+    "h3 span.suffix": "display: none;",
+    "p": "color: rgb(43, 43, 43); font-size: 16px; line-height: 1.8em; letter-spacing: 0.02em; text-align: left; text-indent: 0em; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; padding-top: 8px; padding-bottom: 8px; padding-left: 0px; padding-right: 0px;",
+    "img": "display: block; margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; max-width: 100%;",
+    "strong": "color: rgb(57, 144, 3); font-weight: bold; background-attachment: scroll; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: none; background-origin: padding-box; background-position-x: 0%; background-position-y: 0%; background-repeat: no-repeat; background-size: auto; width: auto; height: auto;",
+    "blockquote": "margin-top: 20px; margin-bottom: 20px; margin-left: 0px; margin-right: 0px; padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 10px; border-top-style: solid; border-bottom-style: solid; border-left-style: solid; border-right-style: solid; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-width: 1px; border-top-color: rgb(27, 144, 13); border-bottom-color: rgb(27, 144, 13); border-left-color: rgb(27, 144, 13); border-right-color: rgb(27, 144, 13); border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; background-attachment: scroll; background-clip: border-box; background-color: rgb(255, 255, 255); background-image: none; background-origin: padding-box; background-position-x: 0%; background-position-y: 0%; background-repeat: no-repeat; background-size: auto; width: auto; height: auto; box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px; display: block; overflow-x: auto; overflow-y: auto;",
+    "ul": "list-style-type: circle; margin-top: 8px; margin-bottom: 8px; margin-left: 0px; margin-right: 0px; padding-top: 0px; padding-bottom: 0px; padding-left: 25px; padding-right: 0px; color: rgb(0, 0, 0);",
+    "h4": "margin-top: 30px; margin-bottom: 15px; margin-left: 0px; margin-right: 0px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; display: block;",
+    "h4 span.prefix": "display: none;",
+    "h4 span.content": "font-size: 18px; color: rgb(0, 0, 0); line-height: 1.5em; letter-spacing: 0em; text-align: left; font-weight: bold; display: block;",
+    "h4 span.suffix": "display: none;",
+    "figure": "margin-top: 10px; margin-bottom: 10px; margin-left: 0px; margin-right: 0px; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; display: flex; flex-direction: column; justify-content: center; align-items: center;"
+  },
+  "counts": {
+    "container": 1,
+    "h3": 6,
+    "h3 span.prefix": 6,
+    "h3 span.content": 6,
+    "h3 span.suffix": 6,
+    "p": 28,
+    "img": 8,
+    "strong": 8,
+    "blockquote": 3,
+    "ul": 4,
+    "li": 11,
+    "h4": 5,
+    "h4 span.prefix": 5,
+    "h4 span.content": 5,
+    "h4 span.suffix": 5,
+    "figure": 1
+  }
+}

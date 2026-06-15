@@ -1,0 +1,11 @@
+{
+  "name": "wechat-post",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "dependencies": {
+    "markdown-it": "^14.2.0",
+    "marked": "^18.0.5",
+    "node-html-parser": "^7.1.0"
+  }
+}
