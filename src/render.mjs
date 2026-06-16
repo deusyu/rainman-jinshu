@@ -89,8 +89,18 @@ export function renderMarkdown(md, theme) {
   };
   apply(root);
 
-  const container = styleFor("container");
-  return `<section${container ? ` style="${container}"` : ""}>${root.innerHTML}</section>`;
+  // Emit FLAT styled elements (no outer <section>), matching mdnice's copied
+  // HTML — WeChat wraps a pasted outer <section> in a default gray background.
+  // Fold the container's base font-family into top-level blocks so themes that
+  // set one (e.g. Obsidian) don't lose it.
+  const container = styleFor("container") || "";
+  const ff = (/font-family:[^;]+/i.exec(container) || [])[0];
+  if (ff) for (const el of root.childNodes) {
+    if (el.nodeType !== 1) continue;
+    const st = el.getAttribute("style") || "";
+    if (!/font-family:/i.test(st)) el.setAttribute("style", st ? `${st};${ff}` : ff);
+  }
+  return root.innerHTML;
 }
 
 // CLI: node src/render.mjs <themeId> [markdownFile]  -> prints HTML
