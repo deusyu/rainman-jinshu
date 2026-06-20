@@ -30,6 +30,7 @@ function findChrome() {
 }
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+// 字体走 Google Fonts（需联网）；离线 / 受限网络下自动回退到 Songti SC / 系统衬线。
 const html = `<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&family=Noto+Sans+SC:wght@500&display=swap" rel="stylesheet">
 <style>

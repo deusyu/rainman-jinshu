@@ -3,6 +3,7 @@
 > 让每篇公众号，都像一封锦书。
 
 [![CI](https://github.com/deusyu/rainman-jinshu/actions/workflows/ci.yml/badge.svg)](https://github.com/deusyu/rainman-jinshu/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 把 Markdown 用 mdnice 风格主题排版成**微信公众号样式**，逐元素内联样式、与 mdnice 原版 100% 对齐；并可经 Claude Code 直接发到公众号草稿箱。
 
@@ -33,10 +34,10 @@ bun src/render.mjs 3 sample.md > out.html
 | 渲染 + 发草稿箱 | `bun src/publish.mjs <file.md> <themeId> [--author 名]` |
 | 渲染 + 群发提交 | `bun src/publish.mjs <file.md> <themeId> --submit` |
 | 生成品牌封面 | `bun src/cover.mjs --title "标题" [--accent rgb(..)] [--square]` |
-| 复核主题保真度 | `node src/verify.mjs [themeId --detail]` |
-| 打包 themes.json | `node src/bundle.mjs` |
-| 校验 themes.json 未漂移 | `node src/bundle.mjs --check` |
-| （可选）重抓主题 | `node src/extract.mjs`（需先抓取 `themes/raw/`，见下） |
+| 复核主题保真度 | `bun src/verify.mjs [themeId --detail]`（需先抓取 `themes/raw/`） |
+| 打包 themes.json | `bun src/bundle.mjs` |
+| 校验 themes.json 未漂移 | `bun src/bundle.mjs --check` |
+| （可选）重抓主题 | `bun src/extract.mjs`（需先抓取 `themes/raw/`，见下） |
 
 themeId 见 `themes/maps/`（共 28 款，如 `3`=姹紫、`44`=Obsidian、`1`=橙心默认）。
 

@@ -38,12 +38,6 @@ export function parseStyle(style) {
   return out;
 }
 
-export function stringifyStyle(obj) {
-  return Object.entries(obj)
-    .map(([k, v]) => `${k}: ${v}`)
-    .join("; ");
-}
-
 // Drop properties whose value equals the known no-op default.
 export function denoise(obj) {
   const out = {};

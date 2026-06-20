@@ -36,7 +36,7 @@ export function renderMarkdown(md, theme) {
     return fallback[key];
   };
 
-  const html = marked.parse(md, { mangle: false, headerIds: false });
+  const html = marked.parse(md);
   const root = parseHtml(`<div>${html}</div>`).firstChild;
 
   const apply = (node) => {
@@ -103,12 +103,21 @@ export function renderMarkdown(md, theme) {
   return root.innerHTML;
 }
 
-// CLI: node src/render.mjs <themeId> [markdownFile]  -> prints HTML
+// CLI: bun src/render.mjs <themeId> <file.md>  -> prints HTML
 if (import.meta.url === `file://${process.argv[1]}`) {
   const id = process.argv[2];
-  const theme = loadTheme(id);
-  const md = process.argv[3]
-    ? fs.readFileSync(process.argv[3], "utf8")
-    : JSON.parse(fs.readFileSync(`themes/raw/${id}.json`, "utf8")).data.markdown;
+  const file = process.argv[3];
+  if (!id) { console.error("用法：bun src/render.mjs <themeId> <file.md>"); process.exit(1); }
+  let theme;
+  try { theme = loadTheme(id); }
+  catch { console.error(`找不到主题 ${id}（可用 id 见 themes/maps/）`); process.exit(1); }
+  let md;
+  if (file) {
+    md = fs.readFileSync(file, "utf8");
+  } else {
+    // 不传文件时回退到主题自带示例（themes/raw/，未入库）。
+    try { md = JSON.parse(fs.readFileSync(`themes/raw/${id}.json`, "utf8")).data.markdown; }
+    catch { console.error("请传入 markdown 文件：bun src/render.mjs <themeId> <file.md>（未传时需 themes/raw/ 缓存，但其未入库）"); process.exit(1); }
+  }
   process.stdout.write(renderMarkdown(md, theme));
 }

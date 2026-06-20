@@ -2,18 +2,22 @@
 
 格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，版本遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
-## [未发布]
+## [0.1.0] - 2026-06-20
 
-### 新增
-- `themes/covers.json`：28 个主题的封面图 URL 入库，`themes.json` 无需 `themes/raw/` 即可完整重建。
-- `bun src/bundle.mjs --check`：`themes.json` 漂移校验（比对 `maps` + `covers` 重建结果）。
-- CI（GitHub Actions）：依赖安装 + 漂移校验 + 渲染冒烟测试。
-- issue / PR 模板，引导贡献者重跑 `bundle --check`。
+首个公开发布版（开源引擎 + skill）。
 
-### 变更
-- 仓库正名为 `rainman-jinshu`；`package.json` 去 `private`、补全元数据、移除未使用的 `markdown-it`。
-- README 补「安装」「快速开始」「主题数据」小节，能力表与 SKILL 对齐。
-- 校正「事实源」措辞：`themes/maps` + `themes/covers.json` 为源，`themes.json` 为产物，私有 web 以 vendoring 同步。
+### 功能
+- mdnice 风格主题渲染：28 款主题，逐元素内联样式、对齐 mdnice 原版。
+- 公众号发草稿：`publish.mjs` 经浏览器 / CDP 复用 `baoyu-post-to-wechat`，不重写微信侧逻辑。
+- 品牌封面生成：`cover.mjs`（900×383 大图 / 383×383 方图）。
+- Claude Code skill：触发词 jinshu / 锦书 / 公众号排版。
 
-## [0.1.0]
-- 锦书引擎首个版本：mdnice 风格主题渲染（28 款，逐元素内联样式）+ 公众号发草稿 + Claude Code skill。
+### 数据与可重建
+- `themes/maps/`（样式事实源）+ `themes/covers.json`（封面 URL，入库）→ `bundle.mjs` 打包出 `themes.json`，无需 `themes/raw/` 即可完整重建。
+- `bun src/bundle.mjs --check`：`themes.json` 漂移校验。
+
+### 工程
+- CI（GitHub Actions）：漂移校验 + 渲染断言冒烟（`test/smoke.mjs`）。
+- issue / PR 模板、`.editorconfig`。
+- `package.json` 元数据齐全、`engines` 声明 bun、`scripts` 入口；依赖精简为 `marked` + `node-html-parser`。
+- `render` / `verify` 在缺少 `themes/raw/` 时给出友好提示而非崩溃。

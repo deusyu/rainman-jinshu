@@ -101,6 +101,11 @@ function verifyTheme(id) {
   return { id, name: theme.name, score: aggTotal ? aggMatched / aggTotal : 1, perKey, uncovered };
 }
 
+if (!fs.existsSync("themes/raw")) {
+  console.error("verify 需要 themes/raw/（mdnice 抓取缓存，未入库）作为对比真值。请先抓取 raw 后重试；详见 README「主题来源与署名」。");
+  process.exit(1);
+}
+
 const arg = process.argv[2];
 const detail = process.argv.includes("--detail");
 const ids = arg && arg !== "--detail"

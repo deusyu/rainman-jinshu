@@ -12,6 +12,19 @@
   "bugs": {
     "url": "https://github.com/deusyu/rainman-jinshu/issues"
   },
+  "engines": {
+    "bun": ">=1.0"
+  },
+  "scripts": {
+    "render": "bun src/render.mjs",
+    "publish": "bun src/publish.mjs",
+    "cover": "bun src/cover.mjs",
+    "bundle": "bun src/bundle.mjs",
+    "check": "bun src/bundle.mjs --check",
+    "verify": "bun src/verify.mjs",
+    "extract": "bun src/extract.mjs",
+    "test": "bun test/smoke.mjs"
+  },
   "dependencies": {
     "marked": "^18.0.5",
     "node-html-parser": "^7.1.0"

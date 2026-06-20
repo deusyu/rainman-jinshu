@@ -14,5 +14,5 @@ jobs:
       - run: bun install --frozen-lockfile
       - name: themes.json 漂移校验（maps + covers 可重建）
         run: bun src/bundle.mjs --check
-      - name: 渲染冒烟测试
-        run: bun src/render.mjs 3 sample.md > /dev/null
+      - name: 渲染断言冒烟
+        run: bun test/smoke.mjs
