@@ -2,6 +2,8 @@
 
 > 让每篇公众号，都像一封锦书。
 
+[![CI](https://github.com/deusyu/rainman-jinshu/actions/workflows/ci.yml/badge.svg)](https://github.com/deusyu/rainman-jinshu/actions/workflows/ci.yml)
+
 把 Markdown 用 mdnice 风格主题排版成**微信公众号样式**，逐元素内联样式、与 mdnice 原版 100% 对齐；并可经 Claude Code 直接发到公众号草稿箱。
 
 这是**开源引擎 + skill**部分。品牌站点（锦书 web）单独私有。
