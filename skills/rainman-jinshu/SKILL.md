@@ -10,7 +10,7 @@ metadata:
 
 把 Markdown 渲染成微信公众号样式（28 款 mdnice 风格主题，逐元素内联样式、100% 对齐 mdnice 原版），发布走浏览器/CDP 路**复用** `baoyu-post-to-wechat`，不重写微信侧逻辑。
 
-引擎与数据是唯一事实源，网页工具（私有 jinshu）与本 skill 共用同一份 `themes.json` / `themes/maps`。
+主题样式以 `themes/maps/`（28 款）为事实源，`themes.json` 是 `bun src/bundle.mjs` 的打包产物；锦书 web（私有）与本 skill 复用同一份产物（vendoring 同步），并非各自维护。
 
 ## 能力
 

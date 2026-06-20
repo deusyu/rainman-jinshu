@@ -6,24 +6,46 @@
 
 这是**开源引擎 + skill**部分。品牌站点（锦书 web）单独私有。
 
+## 安装
+
+前置：[Bun](https://bun.sh)。发草稿另需 Chrome、已登录的公众号后台，以及 [`baoyu-post-to-wechat`](https://github.com/JimLiu/baoyu-skills) skill。
+
+```bash
+bun install
+```
+
+## 快速开始
+
+```bash
+# 渲染 sample.md（主题 3 = 姹紫），输出内联 HTML 到 out.html
+bun src/render.mjs 3 sample.md > out.html
+```
+
+发草稿见下文「作为 Claude Code skill」。
+
 ## 能力
 
 | 用法 | 命令 |
 |------|------|
 | 仅渲染（内联 HTML） | `bun src/render.mjs <themeId> <file.md>` |
 | 渲染 + 发草稿箱 | `bun src/publish.mjs <file.md> <themeId> [--author 名]` |
+| 渲染 + 群发提交 | `bun src/publish.mjs <file.md> <themeId> --submit` |
 | 生成品牌封面 | `bun src/cover.mjs --title "标题" [--accent rgb(..)] [--square]` |
 | 复核主题保真度 | `node src/verify.mjs [themeId --detail]` |
 | 打包 themes.json | `node src/bundle.mjs` |
 | （可选）重抓主题 | `node src/extract.mjs`（需先抓取 `themes/raw/`，见下） |
 
-themeId 见 `themes/maps/`（如 `3`=姹紫、`44`=Obsidian、`1`=橙心默认）。
+themeId 见 `themes/maps/`（共 28 款，如 `3`=姹紫、`44`=Obsidian、`1`=橙心默认）。
 
 ## 作为 Claude Code skill
 
 `skills/rainman-jinshu/SKILL.md`，触发词 **jinshu / 锦书 / 公众号排版**。发草稿走浏览器/CDP，**复用** [`baoyu-post-to-wechat`](https://github.com/JimLiu/baoyu-skills) skill（依赖其脚本，不重写微信侧逻辑）。
 
 `src/publish.mjs` 会自动探测 `baoyu-post-to-wechat`（`~/.claude` 下的插件市场或已装 skill）；探测不到时，设环境变量 `BAOYU_POST_TO_WECHAT` 指向其 `scripts/wechat-article.ts` 或 skill 目录。
+
+## 主题数据
+
+`themes/maps/`（28 款逐元素样式映射）是**事实源**；`themes.json` 由 `bun src/bundle.mjs` 打包生成并入库。锦书 web（私有）以同步副本方式（vendoring）复用本仓 `themes.json`，并非各自维护。
 
 ## 主题来源与署名（请阅读）
 
