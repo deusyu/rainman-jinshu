@@ -1,10 +1,18 @@
 {
-  "name": "wechat-post",
-  "private": true,
-  "type": "module",
+  "name": "rainman-jinshu",
   "version": "0.1.0",
+  "description": "锦书 Jinshu 引擎与 skill：Markdown 套 mdnice 风格主题渲染成微信公众号内联样式（逐元素、对齐原版），可经 Claude Code 发草稿。",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://github.com/deusyu/rainman-jinshu#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deusyu/rainman-jinshu.git"
+  },
+  "bugs": {
+    "url": "https://github.com/deusyu/rainman-jinshu/issues"
+  },
   "dependencies": {
-    "markdown-it": "^14.2.0",
     "marked": "^18.0.5",
     "node-html-parser": "^7.1.0"
   }
