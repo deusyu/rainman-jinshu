@@ -35,12 +35,31 @@ function accentOf(sel) {
 }
 
 const ids = fs.readdirSync("themes/maps").filter(f=>f.endsWith(".json")).map(f=>f.replace(".json",""));
+// 封面图 URL 以入库的 themes/covers.json 为准；本地存在 themes/raw/ 时回退（兼容重抓流程）。
+let covers = {};
+try { covers = JSON.parse(fs.readFileSync("themes/covers.json","utf8")); } catch {}
 const themes = ids.map(id=>{
   const m = JSON.parse(fs.readFileSync(`themes/maps/${id}.json`,"utf8"));
-  let cover="";
-  try { cover = JSON.parse(fs.readFileSync(`themes/raw/${id}.json`,"utf8")).data.cover || ""; } catch {}
+  let cover = covers[id] || "";
+  if (!cover) { try { cover = JSON.parse(fs.readFileSync(`themes/raw/${id}.json`,"utf8")).data.cover || ""; } catch {} }
   return { id:m.id, name:(m.name||"").trim(), description:(m.description||"").trim(), cover, accent:accentOf(m.selectors), selectors:m.selectors };
 }).sort((a,b)=>a.name.localeCompare(b.name,"zh"));
-fs.writeFileSync("themes.json", JSON.stringify(themes));
+const out = JSON.stringify(themes);
+
+// 漂移校验：bun src/bundle.mjs --check —— 比对入库 themes.json 与 maps+covers 重建结果是否一致
+if (process.argv.includes("--check")) {
+  let cur = "";
+  try { cur = fs.readFileSync("themes.json", "utf8"); } catch {}
+  if (cur.trim() !== out.trim()) {
+    const empty = themes.filter(t=>!t.cover).map(t=>t.id);
+    console.error("✗ themes.json 与 themes/maps + themes/covers.json 不一致，请重跑 bun src/bundle.mjs");
+    if (empty.length) console.error(`  空 cover：${empty.join(", ")}`);
+    process.exit(1);
+  }
+  console.log(`✓ themes.json 一致（${themes.length} 主题，无漂移）`);
+  process.exit(0);
+}
+
+fs.writeFileSync("themes.json", out);
 console.log(`bundled ${themes.length} themes -> themes.json (${(fs.statSync("themes.json").size/1024).toFixed(0)} KB)`);
 console.log(themes.map(t=>t.name).join("  "));
